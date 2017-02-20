@@ -1,0 +1,38 @@
+{
+    "name": "book-store",
+    "version": "1.0.0",
+    "description": "This document describes the final project assignment for Telerik Academy students in \"Web front-end develeopment\" course",
+    "main": "index.js",
+    "scripts": {
+        "dev": "./node_modules/.bin/nodemon index.js",
+        "postinstall": "./node_modules/.bin/bower install",
+        "test": "./node_modules/.bin/eslint ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RossyB/BookStore.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/RossyB/BookStore/issues"
+    },
+    "homepage": "https://github.com/RossyB/BookStore#readme",
+    "dependencies": {
+        "body-parser": "1.16.1",
+        "cookie-parser": "1.4.3",
+        "express": "4.14.1",
+        "express-session": "1.15.1",
+        "mongoose": "4.8.2",
+        "passport": "0.3.2",
+        "passport-local": "1.0.0"
+    },
+    "devDependencies": {
+        "eslint": "3.15.0",
+        "eslint-config-google": "^0.7.1",
+        "eslint-config-standard": "^6.2.1",
+        "eslint-plugin-promise": "^3.4.1",
+        "eslint-plugin-standard": "^2.0.1",
+        "nodemon": "^1.11.0"
+    }
+}

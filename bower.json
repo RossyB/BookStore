@@ -1,0 +1,18 @@
+{
+  "name": "book-store",
+  "description": "This document describes the final project assignment for Telerik Academy students in \"Web front-end develeopment\" course",
+  "main": "index.js",
+  "authors": [
+    "Росица Бъндева <rossy@compass-bg.net>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/RossyB/BookStore",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ]
+}
