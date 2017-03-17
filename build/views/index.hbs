@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet", href="/public/css/main.css"/>
+
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/libs/tether/dist/js/tether.min.js"></script>
+    <script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/libs/navigo/lib/navigo.min.js"></script>
+    <script src="/libs/bluebird/js/browser/bluebird.core.min.js"></script>
+    <script src="/libs/handlebars/dist/handlebars.min.js"></script>
+
+    <title>Book Store</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+    <div class="container">
+        <div id="page-placeholder"></div>
+    </div>
+
+    <script src="/public/scripts/utils/http.js"></script>
+    <script src="/public/data/books-data.js"></script>
+    <script src="/public/scripts/utils/templates.js"></script>
+
+    <script src="/public/pages/home/home.js"></script>
+
+    <script src="/public/app.js"></script>
+</body>
+
+</html>

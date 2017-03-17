@@ -26,7 +26,9 @@ module.exports = function(data) {
 
                     res.status(200).json({
                         success: true,
-                        message: 'Login successful!'
+                        message: 'Login successful!',
+                        username: user.username,
+                        userrole: user.roles
                     });
                 });
             });
