@@ -1,4 +1,4 @@
-$nav-color: #ffffff;
+$white-color: #ffffff;
 .navbar-brand {
     font-family: 'Roboto', serif;
     font-weight: bold;
@@ -6,5 +6,38 @@ $nav-color: #ffffff;
 }
 
 .bg-faded {
-    background-color: $nav-color;
+    background-color: $white-color;
+}
+
+.nav-item {
+    padding: 5px 10px;
+}
+
+.search-nav {
+    background-color: #e2dee0;
+    margin-top: -10px;
+    margin-bottom: -8px;
+    padding: 15px 20px;
+    a {
+        i {
+            color: $white-color;
+        }
+    }
+}
+
+.login-nav {
+    background-color: #e94e38;
+    margin-top: -10px;
+    margin-bottom: -8px;
+    padding: 15px 20px;
+    a {
+        span,
+        i {
+            color: $white-color;
+        }
+    }
+}
+
+.home-main-image {
+    width: 100%;
 }
