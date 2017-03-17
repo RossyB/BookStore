@@ -1,4 +1,10 @@
 $nav-color: #ffffff;
+.navbar-brand {
+    font-family: 'Roboto', serif;
+    font-weight: bold;
+    margin-right: 10%;
+}
+
 .bg-faded {
     background-color: $nav-color;
 }

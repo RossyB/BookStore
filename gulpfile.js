@@ -52,7 +52,7 @@ gulp.task("build", gulpsync.sync(["clean", "compile", "copy"]));
 gulp.task("serve", ["build"], () => {
     nodemon({
         script: "./build/server.js",
-        ext: "js html hbs css scss",
+        ext: "js html hbs scss css",
         ignore: ["build"],
         tasks: ["build"],
     });

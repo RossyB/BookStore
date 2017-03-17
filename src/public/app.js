@@ -13,5 +13,4 @@ $(() => {
         .on(controllers.home.initial)
         .resolve();
 
-
 });
