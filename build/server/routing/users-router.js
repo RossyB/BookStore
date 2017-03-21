@@ -10,8 +10,10 @@ const userController = createUsersController(data);
 module.exports = app => {
     router
         .post('/api/users/register', userController.register)
-        .post('/api/users/login', userController.loginLocal)
+        .put('/api/users/login', userController.loginLocal)
         .post('/api/users/logout', auth.isAuthenticated, userController.logout)
+        .get('/api/users/:username', auth.isAuthenticated, userController.getUserByUsername)
+        .get('/api/users', userController.getAll)
 
     app.use(router);
 }

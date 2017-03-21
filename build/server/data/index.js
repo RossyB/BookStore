@@ -12,6 +12,17 @@ mongoose.connect(CONNECTION_URL);
 mongoose.Promise = global.Promise;
 
 module.exports = {
+    getAllUsers() {
+        return new Promise((resolve, reject) => {
+            User.find((err, users) => {
+                if (err) {
+                    return reject(err);
+                }
+
+                return resolve(users);
+            });
+        });
+    },
     findById(userId) {
         return new Promise((resolve, reject) => {
             User.findById(userId, (err, user) => {

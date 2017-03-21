@@ -6,7 +6,6 @@ const handlebars = window.handlebars || window.Handlebars;
         getByUrl(url) {
             return http.get(url)
                 .then((templateHtml) => {
-                    console.log(templateHtml)
                     const templateFunc = handlebars.compile(templateHtml);
                     return templateFunc;
                 });
@@ -14,11 +13,6 @@ const handlebars = window.handlebars || window.Handlebars;
         get(name) {
             const url = `/public/templates/${name}.hbs`;
             return this.getByUrl(url);
-        },
-        getPage(name) {
-            const url = `/public/pages/${name}/${name}.hbs`;
-            return this.getByUrl(url);
         }
-
     };
 })(window);

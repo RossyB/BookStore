@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap-reboot.min.css"/>
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet", href="/public/css/main.css"/>
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/libs/alertifyjs/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="/libs/toastr/build/toastr.min.css"/>
+    <link rel="stylesheet" href="/public/css/main.css"/>
 
     <script src="/libs/jquery/dist/jquery.min.js"></script>
     <script src="/libs/tether/dist/js/tether.min.js"></script>
@@ -16,11 +18,14 @@
     <script src="/libs/navigo/lib/navigo.min.js"></script>
     <script src="/libs/bluebird/js/browser/bluebird.core.min.js"></script>
     <script src="/libs/handlebars/dist/handlebars.min.js"></script>
+    <script src="/libs/toastr/build/toastr.min.js"></script>
+    <script src="/libs/alertifyjs/build/alertify.min.js"></script>
 
     <title>Book Store</title>
 </head>
 
 <body>
+
     <nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
         <div class="container">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,26 +54,61 @@
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </a>
                     </li>
-                    <li class="nav-item login-nav">
-                        <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i><span> LOGIN</span></a>
+                    <li class="nav-item login-nav" id="login-nav">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#login-modal-form"><i class="fa fa-user" aria-hidden="true"></i><span> LOGIN</span></a>
+                    </li>
+                    <li class="nav-item login-nav hidden" id="logout-nav">
+                        <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i><span> LOGOUT</span></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div>
-        <img class="home-main-image" src="/public/images/Bookstore4.jpg"/>
-
+    <div class="image-container">
+        <img id="main-image" class="home-main-image" src="/public/images/Bookstore4.jpg"/>
     </div>
+
+    <div class="modal fade" id="login-modal-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-login">
+                    <form class="form-horizontal">
+                            <h1>Login</h1>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input id="tb-username" class="form-control input-login" type="text" placeholder="Username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input id="tb-password" class="form-control input-login" type="password" placeholder="Password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button id="btn-login" class="btn btn-success btn-login">Login</button>
+                                    <button id="btn-register" class="btn btn-success btn-register">Register</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
     <div class="container">
         <div id="page-placeholder"></div>
     </div>
 
     <script src="/public/scripts/utils/http.js"></script>
-    <script src="/public/data/books-data.js"></script>
+    <script src="/public/scripts/data/books-data.js"></script>
+    <script src="/public/scripts/data/users-data.js"></script>
     <script src="/public/scripts/utils/templates.js"></script>
 
-    <script src="/public/pages/home/home.js"></script>
+    <script src="/public/scripts/controllers/home.js"></script>   
 
     <script src="/public/app.js"></script>
 </body>

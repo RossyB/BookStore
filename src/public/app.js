@@ -2,7 +2,6 @@
 
 $(() => {
 
-    window.baseUrl = "/api/";
     const root = null;
     const useHash = false;
 
@@ -10,7 +9,9 @@ $(() => {
 
     // routing
     router
-        .on(controllers.home.initial)
-        .resolve();
+        .on("home", controllers.home.initial)
+        .on("", controllers.home.initial)
+
+    .resolve();
 
 });

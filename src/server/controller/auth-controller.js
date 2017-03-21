@@ -55,6 +55,23 @@ module.exports = function(data) {
                     res.status(201).json(dbUser);
                 })
                 .catch(error => res.status(500).json(error));
+        },
+        getAll(req, res) {
+            data.getAllUsers()
+                .then(users => res.status(200).json(users))
+                .catch(error => {
+                    console.log(error);
+                    res.status(500).json(error);
+                });
+        },
+        getUserByUsername(req, res) {
+            let username = req.params.username;
+            data.findById(username)
+                .then(dbUser => {
+                    res.status(201).json(dbUser);
+                })
+                .catch(error => res.status(500).json(error));
+
         }
     }
 };

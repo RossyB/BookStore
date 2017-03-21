@@ -13,7 +13,7 @@ var http = window.http;
         getBookById: function getBookById(id) {
             return http.getJSON("/api/books/" + id);
         },
-        addMaterial: function addMaterial(book) {
+        addBook: function addBook(book) {
             return http.postJSON("/api/books", book);
         },
         addComment: function addComment(bookId, comment) {

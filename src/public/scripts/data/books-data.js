@@ -11,7 +11,7 @@ const http = window.http;
         getBookById(id) {
             return http.getJSON(`/api/books/${id}`);
         },
-        addMaterial(book) {
+        addBook(book) {
             return http.postJSON("/api/books", book);
         },
         addComment(bookId, comment) {
