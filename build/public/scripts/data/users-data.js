@@ -11,13 +11,13 @@ var http = window.http;
             return http.getJSON("/api/users");
         },
         getUserByUsername: function getUserByUsername(username) {
-            return http.getJSON("/api/profiles/" + username);
+            return http.getJSON("/api/users/" + username);
         },
         login: function login(user) {
             return http.putJSON("/api/users/login", user);
         },
         register: function register(user) {
-            return http.postJSON("/api/users", user);
+            return http.postJSON("/api/users/register", user);
         },
         logout: function logout() {
             return http.postJSON("/api/users/logout");

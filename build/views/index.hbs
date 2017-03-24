@@ -54,11 +54,15 @@
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </a>
                     </li>
-                    <li class="nav-item login-nav" id="login-nav">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#login-modal-form"><i class="fa fa-user" aria-hidden="true"></i><span> LOGIN</span></a>
-                    </li>
-                    <li class="nav-item login-nav hidden" id="logout-nav">
-                        <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i><span> LOGOUT</span></a>
+                    <li class="nav-item dropdown login-nav">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user" aria-hidden="true"></i> LOGIN
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="nav-link login-nav" id="login-nav" href="#" data-toggle="modal" data-target="#login-modal-form"><i class="fa fa-user" aria-hidden="true"></i><span> LOGIN</span></a>
+                            <a class="nav-link login-nav hidden" id="logout-nav" href="#"><i class="fa fa-user" aria-hidden="true"></i><span> LOGOUT</span></a>
+                            <a class="nav-link login-nav" id="register-nav" href="#" data-toggle="modal" data-target="#register-modal-form"><i class="fa fa-user" aria-hidden="true"></i><span> REGISTER</span></a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -69,37 +73,85 @@
     </div>
 
     <div class="modal fade" id="login-modal-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="form-login">
-                    <form class="form-horizontal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-login">
+                        <form class="form-horizontal">
                             <h1>Login</h1>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input id="tb-username" class="form-control input-login" type="text" placeholder="Username">
+                                    <input id="tb-login-username" class="form-control input-login" type="text" placeholder="Username">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input id="tb-password" class="form-control input-login" type="password" placeholder="Password">
+                                    <input id="tb-login-password" class="form-control input-login" type="password" placeholder="Password">
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <button id="btn-login" class="btn btn-success btn-login">Login</button>
-                                    <button id="btn-register" class="btn btn-success btn-register">Register</button>
                                 </div>
                             </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="register-modal-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-register">
+                        <form class="form-horizontal">
+                            <h1>Register</h1>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input id="tb-register-username" class="form-control input-register" type="text" placeholder="Username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input id="tb-register-password" class="form-control input-register" type="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input id="tb-register-firstname" class="form-control input-register" type="text" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input id="tb-register-lastname" class="form-control input-register" type="text" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input id="tb-register-image-url" class="form-control input-register" type="text" placeholder="Image Url">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input id="tb-register-email" class="form-control input-register" type="text" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button id="btn-register" class="btn btn-success btn-register">Register</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
+    <div class="container content-container">
         <div id="page-placeholder"></div>
     </div>
 

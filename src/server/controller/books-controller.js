@@ -5,8 +5,8 @@ module.exports = function(data) {
         getBooks(req, res) {
             // use query parameters for paging
             // it's a good idea to provide default parameters in case of invalid input
-            const pageNumber = +req.query.pageNumber || 0,
-                pageSize = +req.query.pageSize || 5;
+            let pageNumber = +req.query.pageNumber || 0,
+                pageSize = +req.query.pageSize || 6;
 
             // negative page numbers don't make sense
             if (pageNumber < 0) {
@@ -15,7 +15,7 @@ module.exports = function(data) {
 
             // don't allow negative pages
             if (pageSize < 0) {
-                pageSize = 5;
+                pageSize = 6;
             }
 
             // it's good practice to have an upped bound on page size, otherwise your endpoint might be exploited
@@ -35,7 +35,6 @@ module.exports = function(data) {
                 title = req.body.title,
                 author = req.body.author,
                 description = req.body.description,
-                bookIsbn = req.body.bookIsbn,
                 price = req.body.price,
                 bookImageUrl = req.body.bookImageUrl,
                 category = req.body.category;
@@ -48,7 +47,7 @@ module.exports = function(data) {
                 });
                 return;
             }
-            data.createBook({ title, author, description, bookIsbn, price, bookImageUrl, category }, owner)
+            data.createBook({ title, author, description, price, bookImageUrl, category }, owner)
                 .then(dbBook => res.status(201).json(dbBook))
                 .catch(error => {
                     console.log(error);

@@ -17,9 +17,6 @@ const bookSchema = new mongoose.Schema({
         minlength: 10,
         maxlength: 2000,
     },
-    bookIsbn: {
-        type: String,
-    },
     price: {
         type: Number
     },

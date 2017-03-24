@@ -1,7 +1,23 @@
-<div>
-    <ul>
-        {{#each books}}
-        <li>{{title}}</li>
+<div class="books-container">
+    {{#grouped_each 2 books}}
+    <div class="row">
+        {{#each this}}
+            <div class="col-md-6 col-sm-12">
+                <div class="row book-container">
+                    <div class="col-4" >
+                        <img class="bookImage" src="{{bookImageUrl}}"/>
+                    </div>
+                    <div class="col-8">
+                        <h1>{{title}}</h1>
+                        <ul>
+                            
+                            <li>{{author}}</li>
+                            <li>{{price}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
         {{/each}}
-    </ul>
+    </div>
+    {{/grouped_each}}
 </div>

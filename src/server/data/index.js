@@ -63,17 +63,25 @@ module.exports = {
             passHash
         };
 
-        return User.create(newUser);
+        return new Promise((resolve, reject) => {
+            User.create(newUser, (err, user) => {
+                if (err) {
+                    return reject(err);
+                }
+
+                return resolve(user);
+            });
+        });
     },
     createBook(book, owner) {
         const newBook = {
             title: book.title,
             author: book.author,
             description: book.description,
-            bookIsbn: book.bookIsbn,
             price: book.price,
             bookImageUrl: book.bookImageUrl,
-            category: book.category
+            category: book.category,
+            addedAt: Date.now()
         };
 
         if (owner) {

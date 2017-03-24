@@ -52,9 +52,26 @@ module.exports = function(data) {
 
             data.createUser(user)
                 .then(dbUser => {
-                    res.status(201).json(dbUser);
+                    res.status(201).json({
+                        success: true,
+                        message: 'Register successful!',
+                        user: dbUser
+                    });
                 })
-                .catch(error => res.status(500).json(error));
+                .catch(error => {
+                    if (error.code && error.code == 11000) {
+                        res.json({
+                            success: false,
+                            message: 'Username is allready taken!'
+                        });
+                    }
+                    if (error.message && error.message == "User validation failed") {
+                        res.json({
+                            success: false,
+                            message: "Username must be between 4 and 20 symbols!"
+                        })
+                    }
+                });
         },
         getAll(req, res) {
             data.getAllUsers()
@@ -66,7 +83,7 @@ module.exports = function(data) {
         },
         getUserByUsername(req, res) {
             let username = req.params.username;
-            data.findById(username)
+            data.findByUsername(username)
                 .then(dbUser => {
                     res.status(201).json(dbUser);
                 })
