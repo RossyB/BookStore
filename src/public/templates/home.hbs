@@ -7,13 +7,13 @@
                     <div class="col-4" >
                         <img class="bookImage" src="{{bookImageUrl}}"/>
                     </div>
-                    <div class="col-8">
-                        <h1>{{title}}</h1>
-                        <ul>
-                            
-                            <li>{{author}}</li>
-                            <li>{{price}}</li>
-                        </ul>
+                    <div class="col-8 d-flex align-items-start flex-column">
+                        <h1 class="book-title mb-auto bd-highlight"><a href="#/books/{{_id}}">{{title}}</a></h1>
+                        <h2 class="book-author mb-auto bd-highlight">by {{author}}</h2>
+                        <p class="book-category mb-auto bd-highlight">{{category}}
+                        </p>
+                        <div class="book-price">{{formatNumber price style="currency" currency="USD"}}</div>
+                        <div class="book-date">added {{formatRelative addedAt}}</div>
                     </div>
                 </div>
             </div>  

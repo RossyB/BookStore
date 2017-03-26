@@ -7,6 +7,9 @@ module.exports = function(data) {
             // it's a good idea to provide default parameters in case of invalid input
             let pageNumber = +req.query.pageNumber || 0,
                 pageSize = +req.query.pageSize || 6;
+            console.log(req.query);
+            console.log(pageNumber);
+            console.log(pageSize);
 
             // negative page numbers don't make sense
             if (pageNumber < 0) {

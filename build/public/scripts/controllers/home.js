@@ -1,8 +1,8 @@
+/* globals $ alertify*/
 "use strict";
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-/* globals $ alertify*/
 window.controllers = window.controllers || {};
 
 var templates = window.templates;
@@ -10,18 +10,30 @@ var booksdata = window.booksdata;
 var usersdata = window.usersdata;
 
 (function (scope) {
-    var $pagePlaceholder = $("#page-placeholder");
 
     var initial = function initial() {
-        Promise.all([booksdata.getBooks(), templates.get("home")]).then(function (_ref) {
+        Promise.all([booksdata.getBooks(0, 6), templates.get("home")]).then(function (_ref) {
             var _ref2 = _slicedToArray(_ref, 2),
                 resp = _ref2[0],
                 templateFunc = _ref2[1];
 
             var books = resp;
+            var intlData = {
+                "locales": "en-US"
+            };
             console.log(books);
-            var html = templateFunc({ books: books });
-            $pagePlaceholder.html(html);
+            var html = templateFunc({ books: books }, {
+                data: { intl: intlData }
+            });
+            $("#page-placeholder").html(html);
+
+            $(document).ready(function () {
+                $(".book-container").addClass("invisible").viewportChecker({
+                    classToAdd: "animated zoomIn",
+                    classToRemove: "invisible"
+                });
+                return false;
+            });
         });
     };
 

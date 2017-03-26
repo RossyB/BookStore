@@ -5,10 +5,10 @@
 $(function () {
 
     var root = null;
-    var useHash = false;
+    var useHash = true;
 
     var router = new Navigo(root, useHash);
 
     // routing
-    router.on("home", controllers.home.initial).on("", controllers.home.initial).resolve();
+    router.on("books", controllers.books.allBooks).on("books/:id", controllers.book.bookById).on("home", controllers.home.initial).on("*", controllers.home.initial).resolve();
 });

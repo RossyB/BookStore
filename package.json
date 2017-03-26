@@ -19,6 +19,7 @@
   "homepage": "https://github.com/RossyB/BookStore#readme",
   "dependencies": {
     "alertifyjs": "^1.9.0",
+    "animate.css": "^3.5.2",
     "bluebird": "^3.5.0",
     "body-parser": "1.16.1",
     "bootstrap": "^4.0.0-alpha.6",
@@ -28,6 +29,7 @@
     "express-session": "1.15.1",
     "font-awesome": "^4.7.0",
     "handlebars": "^4.0.6",
+    "handlebars-intl": "^1.1.2",
     "jquery": "^3.1.1",
     "mongoose": "4.8.2",
     "navigo": "^4.3.0",

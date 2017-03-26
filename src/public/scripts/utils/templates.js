@@ -1,5 +1,9 @@
+/*globals  HandlebarsIntl*/
+"use strict";
+
 const http = window.http;
 const handlebars = window.handlebars || window.Handlebars;
+HandlebarsIntl.registerWith(handlebars);
 
 handlebars.registerHelper('grouped_each', function(every, context, options) {
     var out = "",

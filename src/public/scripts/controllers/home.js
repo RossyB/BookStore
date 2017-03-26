@@ -1,4 +1,6 @@
 /* globals $ alertify*/
+"use strict";
+
 window.controllers = window.controllers || {}
 
 const templates = window.templates;
@@ -6,15 +8,28 @@ const booksdata = window.booksdata;
 const usersdata = window.usersdata;
 
 ((scope) => {
-    const $pagePlaceholder = $("#page-placeholder");
+
 
     const initial = () => {
-        Promise.all([booksdata.getBooks(), templates.get("home")])
+        Promise.all([booksdata.getBooks(0, 6), templates.get("home")])
             .then(([resp, templateFunc]) => {
                 const books = resp;
+                var intlData = {
+                    "locales": "en-US"
+                };
                 console.log(books)
-                let html = templateFunc({ books });
-                $pagePlaceholder.html(html);
+                let html = templateFunc({ books }, {
+                    data: { intl: intlData }
+                });
+                $("#page-placeholder").html(html);
+
+                $(document).ready(function() {
+                    $(".book-container").addClass("invisible").viewportChecker({
+                        classToAdd: "animated zoomIn",
+                        classToRemove: "invisible"
+                    });
+                    return false;
+                });
             });
     };
 
@@ -85,7 +100,7 @@ const usersdata = window.usersdata;
 
         ev.preventDefault();
         return false;
-    })
+    });
 
 
     scope.home = {

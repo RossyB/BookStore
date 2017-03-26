@@ -43,13 +43,16 @@ body {
     }
 }
 
-.home-main-image {
+.home-footer-image {
     width: 100vw;
-    min-height: 30vh;
 }
 
 .hidden {
     display: none;
+}
+
+.invisible {
+    visibility: false;
 }
 
 .blured-object {
@@ -109,11 +112,40 @@ body {
 }
 
 .content-container {
-    margin-top: 15vh;
+    margin-top: 8vh;
 }
 
 .book-container {
     margin: 20px 0;
     padding: 15px;
     background-color: #ffffff;
+    .book-title {
+        font-size: 1.5rem;
+        color: #566375;
+    }
+    .book-author {
+        font-size: 1.1rem;
+        color: #1baf5d;
+    }
+    .book-category {
+        color: #566375;
+    }
+    .book-price {
+        font-size: 1.5rem;
+        color: #f19e1f;
+        font-weight: bold;
+    }
+}
+
+.carousel-indicators li {
+    width: 1px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.carousel-item {
+    img {
+        width: 100%;
+        height: 100%;
+    }
 }

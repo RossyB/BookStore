@@ -33,12 +33,14 @@ body {
     .logout-nav a i {
       color: #ffffff; }
 
-.home-main-image {
-  width: 100vw;
-  min-height: 30vh; }
+.home-footer-image {
+  width: 100vw; }
 
 .hidden {
   display: none; }
+
+.invisible {
+  visibility: false; }
 
 .blured-object {
   filter: blur(10px); }
@@ -104,9 +106,30 @@ body {
   max-width: 100%; }
 
 .content-container {
-  margin-top: 15vh; }
+  margin-top: 8vh; }
 
 .book-container {
   margin: 20px 0;
   padding: 15px;
   background-color: #ffffff; }
+  .book-container .book-title {
+    font-size: 1.5rem;
+    color: #566375; }
+  .book-container .book-author {
+    font-size: 1.1rem;
+    color: #1baf5d; }
+  .book-container .book-category {
+    color: #566375; }
+  .book-container .book-price {
+    font-size: 1.5rem;
+    color: #f19e1f;
+    font-weight: bold; }
+
+.carousel-indicators li {
+  width: 1px;
+  height: 25px;
+  border-radius: 50%; }
+
+.carousel-item img {
+  width: 100%;
+  height: 100%; }

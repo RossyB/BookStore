@@ -5,10 +5,11 @@ const http = window.http;
 ((scope) => {
 
     scope.booksdata = {
-        getBooks() {
-            return http.getJSON("/api/books");
+        getBooks(pageNumber, pageSize) {
+            return http.getJSON(`/api/books/?pageNumber=${pageNumber}&pageSize=${pageSize}`);
         },
         getBookById(id) {
+            debugger;
             return http.getJSON(`/api/books/${id}`);
         },
         addBook(book) {
