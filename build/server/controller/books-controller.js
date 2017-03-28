@@ -113,7 +113,7 @@ module.exports = function(data) {
                 .then(comment => res.status(201).json(comment))
                 .catch(error => {
                     console.log(error);
-                    res.status(500).json(error);
+                    res.json(error);
                 });
         },
         getCommentsForBook(req, res) {

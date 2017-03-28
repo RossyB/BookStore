@@ -22,7 +22,21 @@ const booksdata = window.booksdata;
                 let html = templateFunc(book, {
                     data: { intl: intlData }
                 });
+
                 $("#page-placeholder").html(html);
+
+                $("#btn-add-comment").on("click", function() {
+                    let comment = {
+                        content: $("textarea#content-comment").val()
+                    };
+
+
+                    booksdata.addComment(id, comment)
+                        .then(() => {
+                            alertify.notify(`Comment added!`, 'success', 3, function() { console.log('dismissed'); });
+                            window.location = "#/books/" + id;
+                        });
+                });
             });
     }
 

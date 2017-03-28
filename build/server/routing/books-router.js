@@ -15,7 +15,7 @@ module.exports = app => {
         .get('/api/books/:bookId', dataMiddleware.bookById, booksController.bookById)
         .put('/api/books/:bookId', auth.isInRole('admin'), booksController.updateBook)
         .delete('/api/books/:bookId', auth.isInRole('admin'), booksController.removeBook)
-        .post('/api/books/:bookId/comments', auth.isAuthenticated, dataMiddleware.bookById, booksController.createComment)
+        .put('/api/books/:bookId/comments', auth.isAuthenticated, dataMiddleware.bookById, booksController.createComment)
 
 
     app.use(router);
