@@ -7,6 +7,8 @@ const booksdata = window.booksdata;
 
 ((scope) => {
     const bookById = (params) => {
+        $("#myCarousel").addClass("hidden");
+        $("#main-image").removeClass("hidden");
         var id = params.id;
         console.log(id);
         Promise.all([booksdata.getBookById(id), templates.get("book")])
@@ -17,7 +19,7 @@ const booksdata = window.booksdata;
                     "locales": "en-US"
                 };
                 console.log(book)
-                let html = templateFunc({ book }, {
+                let html = templateFunc(book, {
                     data: { intl: intlData }
                 });
                 $("#page-placeholder").html(html);

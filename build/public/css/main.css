@@ -1,3 +1,18 @@
+.navbar {
+  background: #ffffff;
+  background: -moz-linear-gradient(left, #ffffff 0%, #ffffff 80%, #e94e38 80%, #e94e38 100%, #e94e38 100%);
+  background: -webkit-linear-gradient(left, #ffffff 0%, #ffffff 80%, #e94e38 80%, #e94e38 100%, #e94e38 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 80%, #e94e38 80%, #e94e38 100%, #e94e38 100%); }
+
+#page .hidden-when-not-logged-in {
+  display: none; }
+
+#page.logged-in .hidden-when-not-logged-in {
+  display: inline-block; }
+
+#page.logged-in .visible-when-not-logged-in {
+  display: none; }
+
 body {
   background-color: #f3f1f2; }
 
@@ -11,6 +26,9 @@ body {
 
 .nav-item {
   padding: 5px 10px; }
+
+#main-image img {
+  width: 100%; }
 
 .search-nav {
   background-color: #e2dee0;
@@ -33,6 +51,13 @@ body {
     .logout-nav a i {
       color: #ffffff; }
 
+.dropdown-menu {
+  margin: 0;
+  margin-top: -0.125rem;
+  background-color: #e94e38;
+  padding-left: 15px !important;
+  border: none; }
+
 .home-footer-image {
   width: 100vw; }
 
@@ -53,54 +78,106 @@ body {
   border: none; }
 
 .form-login,
-.form-register {
+.form-register,
+.form-add-book {
   text-align: center;
   color: #ffffff;
   font-weight: bold; }
   .form-login .input-login,
   .form-login .input-register,
+  .form-login .input-add-book,
   .form-register .input-login,
-  .form-register .input-register {
+  .form-register .input-register,
+  .form-register .input-add-book,
+  .form-add-book .input-login,
+  .form-add-book .input-register,
+  .form-add-book .input-add-book {
     border-radius: 50px;
     padding: .75rem 2rem; }
     .form-login .input-login .input-login::-moz-placeholder,
     .form-login .input-register .input-login::-moz-placeholder,
+    .form-login .input-add-book .input-login::-moz-placeholder,
     .form-register .input-login .input-login::-moz-placeholder,
-    .form-register .input-register .input-login::-moz-placeholder {
+    .form-register .input-register .input-login::-moz-placeholder,
+    .form-register .input-add-book .input-login::-moz-placeholder,
+    .form-add-book .input-login .input-login::-moz-placeholder,
+    .form-add-book .input-register .input-login::-moz-placeholder,
+    .form-add-book .input-add-book .input-login::-moz-placeholder {
       color: #ffffff !important;
       background-color: none; }
     .form-login .input-login .input-login::-webkit-input-placeholder,
     .form-login .input-register .input-login::-webkit-input-placeholder,
+    .form-login .input-add-book .input-login::-webkit-input-placeholder,
     .form-register .input-login .input-login::-webkit-input-placeholder,
-    .form-register .input-register .input-login::-webkit-input-placeholder {
+    .form-register .input-register .input-login::-webkit-input-placeholder,
+    .form-register .input-add-book .input-login::-webkit-input-placeholder,
+    .form-add-book .input-login .input-login::-webkit-input-placeholder,
+    .form-add-book .input-register .input-login::-webkit-input-placeholder,
+    .form-add-book .input-add-book .input-login::-webkit-input-placeholder {
       color: #ffffff !important;
       background-color: none; }
     .form-login .input-login .input-login::-ms-input-placeholder,
     .form-login .input-register .input-login::-ms-input-placeholder,
+    .form-login .input-add-book .input-login::-ms-input-placeholder,
     .form-register .input-login .input-login::-ms-input-placeholder,
-    .form-register .input-register .input-login::-ms-input-placeholder {
+    .form-register .input-register .input-login::-ms-input-placeholder,
+    .form-register .input-add-book .input-login::-ms-input-placeholder,
+    .form-add-book .input-login .input-login::-ms-input-placeholder,
+    .form-add-book .input-register .input-login::-ms-input-placeholder,
+    .form-add-book .input-add-book .input-login::-ms-input-placeholder {
       color: #ffffff !important;
       background-color: none; }
   .form-login .btn-login,
   .form-login .btn-register,
+  .form-login .btn-add-book,
   .form-register .btn-login,
-  .form-register .btn-register {
+  .form-register .btn-register,
+  .form-register .btn-add-book,
+  .form-add-book .btn-login,
+  .form-add-book .btn-register,
+  .form-add-book .btn-add-book {
     border-radius: 50px;
     background-color: #e94e38;
     border: none;
     padding: .75rem 2rem; }
     .form-login .btn-login .btn-login:hover,
     .form-login .btn-register .btn-login:hover,
+    .form-login .btn-add-book .btn-login:hover,
     .form-register .btn-login .btn-login:hover,
-    .form-register .btn-register .btn-login:hover {
+    .form-register .btn-register .btn-login:hover,
+    .form-register .btn-add-book .btn-login:hover,
+    .form-add-book .btn-login .btn-login:hover,
+    .form-add-book .btn-register .btn-login:hover,
+    .form-add-book .btn-add-book .btn-login:hover {
       background-color: #b93e2c;
       border: none; }
     .form-login .btn-login .btn-login:focus,
     .form-login .btn-register .btn-login:focus,
+    .form-login .btn-add-book .btn-login:focus,
     .form-register .btn-login .btn-login:focus,
-    .form-register .btn-register .btn-login:focus {
+    .form-register .btn-register .btn-login:focus,
+    .form-register .btn-add-book .btn-login:focus,
+    .form-add-book .btn-login .btn-login:focus,
+    .form-add-book .btn-register .btn-login:focus,
+    .form-add-book .btn-add-book .btn-login:focus {
       background-color: #b93e2c;
       border: none; }
+
+.btn-add-book,
+.btn-comment {
+  border-radius: 50px;
+  background-color: #e94e38;
+  border: none;
+  padding: .75rem 2rem;
+  color: #ffffff; }
+  .btn-add-book .btn-login:hover,
+  .btn-comment .btn-login:hover {
+    background-color: #b93e2c;
+    border: none; }
+  .btn-add-book .btn-login:focus,
+  .btn-comment .btn-login:focus {
+    background-color: #b93e2c;
+    border: none; }
 
 .bookImage {
   max-width: 100%; }
@@ -110,11 +187,14 @@ body {
 
 .book-container {
   margin: 20px 0;
-  padding: 15px;
+  padding: 20px;
   background-color: #ffffff; }
   .book-container .book-title {
-    font-size: 1.5rem;
-    color: #566375; }
+    font-size: 1.5rem; }
+    .book-container .book-title a {
+      color: #566375; }
+      .book-container .book-title a a:hover {
+        text-decoration: none; }
   .book-container .book-author {
     font-size: 1.1rem;
     color: #1baf5d; }
@@ -125,6 +205,20 @@ body {
     color: #f19e1f;
     font-weight: bold; }
 
+.page-title {
+  font-size: 1.5rem;
+  color: #566375; }
+
+.comments-container {
+  padding: 20px 15px; }
+  .comments-container .comments {
+    background: #f3f1f2;
+    padding: 10px;
+    margin-bottom: 10px; }
+    .comments-container .comments img {
+      width: 64px;
+      height: 64px; }
+
 .carousel-indicators li {
   width: 1px;
   height: 25px;
@@ -133,3 +227,38 @@ body {
 .carousel-item img {
   width: 100%;
   height: 100%; }
+
+.home-footer-image {
+  width: 100%;
+  height: 30%;
+  background-image: url("/public/images/footer-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+  .home-footer-image .footer-container {
+    padding: 5% 7%; }
+
+.footer-nav a {
+  color: #ffffff; }
+
+.footer-nav a:hover {
+  color: #566375; }
+
+.img-circle {
+  display: inline-block;
+  margin-right: 10px;
+  height: 30px;
+  width: 30px; }
+
+.img-circle > i {
+  padding-top: 9px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold; }
+
+.text-follow-us {
+  color: #ffffff; }
+
+.footer-copyright {
+  color: #ffffff;
+  margin-top: 10%; }

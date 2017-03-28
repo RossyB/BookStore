@@ -12,7 +12,9 @@ var usersdata = window.usersdata;
 (function (scope) {
 
     var initial = function initial() {
-        Promise.all([booksdata.getBooks(0, 6), templates.get("home")]).then(function (_ref) {
+        $("#myCarousel").removeClass("hidden");
+        $("#main-image").addClass("hidden");
+        Promise.all([booksdata.getBooks(0, 6, "addedAt", -1), templates.get("home")]).then(function (_ref) {
             var _ref2 = _slicedToArray(_ref, 2),
                 resp = _ref2[0],
                 templateFunc = _ref2[1];
@@ -38,8 +40,6 @@ var usersdata = window.usersdata;
     };
 
     $("#btn-login").on("click", function (ev) {
-        $("#tb-login-username").val = "";
-        $("#tb-login-password").val = "";
         var user = {
             username: $("#tb-login-username").val(),
             password: $("#tb-login-password").val()
@@ -51,9 +51,8 @@ var usersdata = window.usersdata;
                     console.log('dismissed');
                 });
                 $(document.body).addClass("logged-in");
-                $("#login-nav").addClass("hidden");
-                $("#logout-nav").removeClass("hidden");
                 $('#login-modal-form').modal('hide');
+                localStorage.setItem("username", resp.username);
             } else {
                 alertify.notify(resp.message, 'error', 3, function () {
                     console.log('dismissed');
@@ -70,8 +69,7 @@ var usersdata = window.usersdata;
         usersdata.logout().then(function (resp) {
             if (resp.success) {
                 $(document.body).removeClass("logged-in");
-                $("#login-nav").removeClass("hidden");
-                $("#logout-nav").addClass("hidden");
+                localStorage.removeItem("username");
                 alertify.notify("Logout successfull!", 'success', 3, function () {
                     console.log('dismissed');
                 });

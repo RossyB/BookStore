@@ -11,7 +11,9 @@ const usersdata = window.usersdata;
 
 
     const initial = () => {
-        Promise.all([booksdata.getBooks(0, 6), templates.get("home")])
+        $("#myCarousel").removeClass("hidden");
+        $("#main-image").addClass("hidden");
+        Promise.all([booksdata.getBooks(0, 6, "addedAt", -1), templates.get("home")])
             .then(([resp, templateFunc]) => {
                 const books = resp;
                 var intlData = {
@@ -34,8 +36,6 @@ const usersdata = window.usersdata;
     };
 
     $("#btn-login").on("click", (ev) => {
-        $("#tb-login-username").val = "";
-        $("#tb-login-password").val = "";
         let user = {
             username: $("#tb-login-username").val(),
             password: $("#tb-login-password").val()
@@ -46,9 +46,8 @@ const usersdata = window.usersdata;
                 if (resp.success) {
                     alertify.notify(`${resp.message} Hello, ${resp.username}`, 'success', 3, function() { console.log('dismissed'); });
                     $(document.body).addClass("logged-in");
-                    $("#login-nav").addClass("hidden");
-                    $("#logout-nav").removeClass("hidden");
                     $('#login-modal-form').modal('hide');
+                    localStorage.setItem("username", resp.username);
                 } else {
                     alertify.notify(resp.message, 'error', 3, function() { console.log('dismissed'); });
 
@@ -64,8 +63,7 @@ const usersdata = window.usersdata;
             .then((resp) => {
                 if (resp.success) {
                     $(document.body).removeClass("logged-in");
-                    $("#login-nav").removeClass("hidden");
-                    $("#logout-nav").addClass("hidden");
+                    localStorage.removeItem("username");
                     alertify.notify("Logout successfull!", 'success', 3, function() { console.log('dismissed'); });
                 } else {
                     alertify.notify(resp.message, 'error', 3, function() { console.log('dismissed'); });
@@ -101,7 +99,6 @@ const usersdata = window.usersdata;
         ev.preventDefault();
         return false;
     });
-
 
     scope.home = {
         initial

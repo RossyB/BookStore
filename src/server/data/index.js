@@ -86,7 +86,9 @@ module.exports = {
 
         if (owner) {
             newBook.owner = {
-                username: owner.username
+                username: owner.username,
+                userImageUrl: owner.imageUrl,
+                userRoles: owner.roles
             }
         }
 
@@ -103,7 +105,7 @@ module.exports = {
 
     getAllBooks() {
         return new Promise((resolve, reject) => {
-            Book.find((err, books) => {
+            Book.find({}).sort({ addedAt: -1 }).exec((err, books) => {
                 if (err) {
                     return reject(err);
                 }
@@ -112,9 +114,11 @@ module.exports = {
             });
         });
     },
-    getPagedBooks(pageNumber, pageSize) {
+    getPagedBooks(pageNumber, pageSize, prop, arrange) {
         return new Promise((resolve, reject) => {
-            Book.find({}).skip(pageNumber * pageSize).limit(pageSize).exec((err, books) => {
+            Book.find({}).sort([
+                [prop, arrange]
+            ]).skip(pageNumber * pageSize).limit(pageSize).exec((err, books) => {
                 if (err) {
                     return reject(err);
                 }

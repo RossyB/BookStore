@@ -7,11 +7,10 @@ var http = window.http;
 (function (scope) {
 
     scope.booksdata = {
-        getBooks: function getBooks(pageNumber, pageSize) {
-            return http.getJSON("/api/books/?pageNumber=" + pageNumber + "&pageSize=" + pageSize);
+        getBooks: function getBooks(pageNumber, pageSize, prop, arrange) {
+            return http.getJSON("/api/books/?pageNumber=" + pageNumber + "&pageSize=" + pageSize + "&prop=" + prop + "&arrange=" + arrange);
         },
         getBookById: function getBookById(id) {
-            debugger;
             return http.getJSON("/api/books/" + id);
         },
         addBook: function addBook(book) {

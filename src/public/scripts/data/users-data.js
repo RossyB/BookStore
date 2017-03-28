@@ -13,7 +13,7 @@ const http = window.http;
         },
 
         login(user) {
-            return http.putJSON("/api/users/login", user)
+            return http.putJSON("/api/users/login", user);
         },
         register(user) {
             return http.postJSON("/api/users/register", user);
@@ -24,7 +24,9 @@ const http = window.http;
         isLoggedIn() {
             return Promise.resolve()
                 .then(() => {
-                    //return !!localStorage.getItem("username");
+                    let username = localStorage.getItem("username");
+                    console.log(username);
+                    return username;
                 });
         }
     }

@@ -28,6 +28,7 @@ module.exports = function(data) {
                         success: true,
                         message: 'Login successful!',
                         username: user.username,
+                        imageUrl: user.imageUrl,
                         userrole: user.roles
                     });
                 });

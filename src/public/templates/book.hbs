@@ -1,3 +1,47 @@
-<div>
-    <h1> Work {{book.title}}</h1>
+<div class="books-container">
+    <div class="row">
+        <div class="col-12  book-container">
+            <div class="row">
+                <div class="col-4" >
+                    <img class="bookImage" src="{{bookImageUrl}}"/>
+                </div>
+                <div class="col-8 d-flex align-items-start flex-column">
+                    <h1 class="book-title mb-auto bd-highlight"><a href="#/books/{{_id}}">{{title}}</a></h1>
+                    <h2 class="book-author mb-auto bd-highlight">by {{author}}</h2>
+                    <p class="book-category mb-auto bd-highlight">Genre: {{category}}</p>
+                    <div class="book-category mb-auto bd-highlight">
+                        <p>Description: </p>
+                        <p >{{description}}</p>
+                    </div>
+                    
+                    <div class="book-price">Price {{formatNumber price style="currency" currency="USD"}}</div>
+                    <div class="book-date">added {{formatRelative addedAt}}</div>
+                </div>
+            </div>
+            <div class="row comments-container">
+                {{#if comments.length}}
+                    {{#each comments}}
+                        <div class="media comments col-12">
+                            <img class="d-flex mr-3"{{#if author.imageUrl}} src="{{author.imageUrl}}" {{else}} src="/public/images/user-no-image.png" {{/if}} alt="Author image">
+                            <div class="media-body">
+                                <h5 class="mt-0">{{author.username}} writes:</h5>
+                                {{content}}
+                            </div>  
+                        </div>
+                    {{/each}}
+                {{/if}}
+                <div class="container">
+                    <h5>Add Comment</h5>
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group">
+                                <textarea id="content-comment" placeholder="Content" class="form-control" rows="3"></textarea>
+                            </div>
+                            <button id="btn-add-comment" type="button" class="btn btn-lg btn-comment">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
 </div>

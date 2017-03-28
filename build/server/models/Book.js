@@ -14,8 +14,6 @@ const bookSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        minlength: 10,
-        maxlength: 2000,
     },
     price: {
         type: Number
@@ -27,7 +25,9 @@ const bookSchema = new mongoose.Schema({
         type: String
     },
     owner: {
-        username: String
+        username: String,
+        userImageUrl: String,
+        userRoles: [String]
     },
     addedAt: {
         type: Date

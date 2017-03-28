@@ -24,7 +24,9 @@ var http = window.http;
         },
         isLoggedIn: function isLoggedIn() {
             return Promise.resolve().then(function () {
-                //return !!localStorage.getItem("username");
+                var username = localStorage.getItem("username");
+                console.log(username);
+                return username;
             });
         }
     };

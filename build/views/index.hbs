@@ -27,7 +27,7 @@
     <title>Book Store</title>
 </head>
 
-<body>
+<body id="page">
 
     <nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
         <div class="container">
@@ -50,6 +50,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about" data-navigo>ABOUT</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link hidden-when-not-logged-in" href="/profile" data-navigo>PROFILE</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ml-auto mt-2 mt-md-0">
                     <li class="nav-item search-nav">
@@ -62,9 +65,9 @@
                         <i class="fa fa-user" aria-hidden="true"></i> LOGIN
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="nav-link login-nav" id="login-nav" href="#" data-toggle="modal" data-target="#login-modal-form"><i class="fa fa-user" aria-hidden="true"></i><span> LOGIN</span></a>
-                            <a class="nav-link login-nav hidden" id="logout-nav" href="#"><i class="fa fa-user" aria-hidden="true"></i><span> LOGOUT</span></a>
-                            <a class="nav-link login-nav" id="register-nav" href="#" data-toggle="modal" data-target="#register-modal-form"><i class="fa fa-user" aria-hidden="true"></i><span> REGISTER</span></a>
+                            <a class="nav-link visible-when-not-logged-in" id="login-nav" href="#" data-toggle="modal" data-target="#login-modal-form"><i class="fa fa-user" aria-hidden="true"></i><span> LOGIN</span></a>
+                            <a class="nav-link hidden-when-not-logged-in" id="logout-nav" href="#"><i class="fa fa-user" aria-hidden="true"></i><span> LOGOUT</span></a>
+                            <a class="nav-link visible-when-not-logged-in" id="register-nav" href="#" data-toggle="modal" data-target="#register-modal-form"><i class="fa fa-user" aria-hidden="true"></i><span> REGISTER</span></a>
                         </div>
                     </li>
                 </ul>
@@ -106,6 +109,9 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
+    </div>
+    <div id="main-image" class="hidden">
+        <img src="/public/images/main-image.jpg"/>
     </div>
 
     <div class="modal fade" id="login-modal-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -187,13 +193,91 @@
         </div>
     </div>
 
+    <div class="modal fade" id="add-book-modal-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-add-book">
+                    <form class="form-horizontal">
+                        <h1>Add new book</h1>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="tb-book-title" class="form-control input-add-book" type="text" placeholder="Title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="tb-book-author" class="form-control input-add-book" type="text" placeholder="Author">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <textarea id="ta-description" class="form-control input-add-book" placeholder="Description" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="tb-book-price" class="form-control input-add-book" type="text" placeholder="Price">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="tb-book-image-url" class="form-control input-add-book" type="text" placeholder="Image Url">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="tb-book-category" class="form-control input-add-book" type="text" placeholder="Category">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <button id="btn-add-book-modal" class="btn btn-success btn-add-book">Add book</button>
+                            </div>
+                        </div> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <div class="container content-container">
         <div id="page-placeholder"></div>
     </div>
 
     <footer>
-        <img class="home-footer-image" src="/public/images/footer-img.jpg"/>
+        <div class="col-12 home-footer-image">
+            <div class="row footer-container">
+                <div class="col-6">
+                    <nav class="nav flex-column footer-nav">
+                        <a class="nav-link active" href="/home" data-navigo>HOME</a>
+                        <a class="nav-link" href="/books" data-navigo>BOOKS</a>
+                        <a class="nav-link" href="/about" data-navigo>ABOUT</a>
+                        <a class="nav-link  hidden-when-not-logged-in" href="/profile" data-navigo>PROFILE</a>
+                    </nav>
+                </div>
+                <div class="col-6">
+                    <div><h5 class="text-follow-us">Follow us</h5></div>
+                    <div class="img-circle">
+                        <i class="fa fa-linkedin fa-lg"></i>
+                    </div>
+                    <div class="img-circle">
+                        <i class="fa fa-twitter fa-lg"></i>
+                    </div>
+                    <div class="img-circle">
+                        <i class="fa fa-youtube fa-lg"></i>
+                    </div>
+                    <div class="img-circle">
+                        <i class="fa fa-google-plus fa-lg"></i>
+                    </div>
+                    <div class="img-circle">
+                        <i class="fa fa-facebook fa-lg"></i>
+                    </div>
+                    <div class="footer-copyright">Copyright © All Rights reserved</div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="/public/scripts/utils/http.js"></script>

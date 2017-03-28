@@ -6,7 +6,10 @@ module.exports = function(data) {
             // use query parameters for paging
             // it's a good idea to provide default parameters in case of invalid input
             let pageNumber = +req.query.pageNumber || 0,
-                pageSize = +req.query.pageSize || 6;
+                pageSize = +req.query.pageSize || 6,
+                prop = req.query.prop || 'addedAt',
+                arrange = +req.query.arrange || -1;
+
             console.log(req.query);
             console.log(pageNumber);
             console.log(pageSize);
@@ -26,7 +29,7 @@ module.exports = function(data) {
                 pageSize = 50;
             }
 
-            data.getPagedBooks(pageNumber, pageSize)
+            data.getPagedBooks(pageNumber, pageSize, prop, arrange)
                 .then(books => res.status(200).json(books))
                 .catch(error => {
                     console.log(error);
@@ -51,7 +54,11 @@ module.exports = function(data) {
                 return;
             }
             data.createBook({ title, author, description, price, bookImageUrl, category }, owner)
-                .then(dbBook => res.status(201).json(dbBook))
+                .then(dbBook => res.status(201).json({
+                    success: true,
+                    message: "The book is added",
+                    book: dbBook
+                }))
                 .catch(error => {
                     console.log(error);
                     res.status(500).json(error);
